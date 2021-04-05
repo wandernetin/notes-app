@@ -56,7 +56,7 @@ yargs.command({
         }
     },
     handler(argv) {
-        notes.getNotes(argv.title);
+        notes.getNote(argv.title);
     }
 });
 

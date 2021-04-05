@@ -1,7 +1,7 @@
 const fs = require('fs');
 const chalk = require('chalk');
 
-const getNotes = (title) => {
+const getNote = (title) => {
     const currentNote = loadNotes().find((note) => note.title === title);
     if(currentNote) {
         console.log(chalk.italic.bold(currentNote.title));
@@ -59,7 +59,7 @@ const loadNotes = () => {
 }
 
 module.exports = {
-    getNotes: getNotes,
+    getNote: getNote,
     addNote: addNote,
     removeNote: removeNote,
     listNotes: listNotes
