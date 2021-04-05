@@ -1,11 +1,19 @@
 const fs = require('fs');
 const chalk = require('chalk');
 
-const getNotes = () => 'Your notes...';
+const getNotes = (title) => {
+    const currentNote = loadNotes().find((note) => note.title === title);
+    if(currentNote) {
+        console.log(chalk.italic.bold(currentNote.title));
+        console.log(currentNote.body);
+    } else {
+        console.log(chalk.bgRed('Note not found!'));
+    }
+}
 
 const addNote = (title, body) => {
     const notes = loadNotes();
-    const duplicateNote = notes.find((note) => note.title === title)
+    const duplicateNote = notes.find((note) => note.title === title);
     if (!duplicateNote) {
         notes.push({
             title: title,
